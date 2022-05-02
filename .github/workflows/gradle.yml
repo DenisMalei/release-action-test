@@ -39,5 +39,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        tags: action-test
+        tags: DenisMalei/action-test:latest
         push: ${{ github.ref == 'refs/heads/main' }}
