@@ -26,4 +26,4 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
     - name: Build with Gradle
-      run: ls build/libs; ./gradlew clean build
+      run: ./gradlew clean build; ls build/libs
