@@ -27,3 +27,17 @@ jobs:
         distribution: 'zulu'
     - name: Build with Gradle
       run: ./gradlew clean build; ls build/libs
+
+    - name: Login to Github Packages
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_PAT }}
+
+    - name: Build image and push to Docker Hub and GitHub Container Registry
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        tags: action-test
+        push: ${{ github.ref == 'refs/heads/main' }}
