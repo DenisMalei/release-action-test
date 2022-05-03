@@ -8,10 +8,12 @@
 name: Java CI with Gradle
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: "Default version to use when preparing a release."
+        required: true
+        default: "X.Y.Z"
 
 jobs:
   build:
