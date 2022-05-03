@@ -12,7 +12,7 @@ repositories {
 	mavenCentral()
 	mavenLocal()
 	maven {
-		url = uri('https://maven.pkg.github.com/thg-procure-team/procure-core-backend')
+		url = uri('https://maven.pkg.github.com/DenisMalei/release-action-test')
 		credentials {
 			username = 'DenisMalei'
 			password = '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'
