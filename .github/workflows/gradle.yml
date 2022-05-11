@@ -28,3 +28,13 @@ jobs:
         distribution: 'zulu'
     - name: Build with Gradle
       run: ./gradlew clean build; ls build/libs
+
+    - name: Tag repository
+      id: tag
+      uses: mathieudutour/github-tag-action@v6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        release_branches: .^
+        pre_release_branches: .*
+        default_prerelease_bump: preminor
+        append_to_pre_release_tag: SNAPSHOT
