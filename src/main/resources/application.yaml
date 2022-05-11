@@ -1,0 +1,33 @@
+server:
+  servlet:
+    context-path: /action
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://cockroachdb:26257/action
+    username: roach
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 10
+
+  jpa:
+    database-platform: org.hibernate.dialect.CockroachDB201Dialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: public
+        format_sql: true
+        order_inserts: true
+        jdbc:
+          time_zone: UTC
+          batch_size: 30
+  liquibase:
+    change-log: classpath:/db/migrations/master.yaml
+    default-schema: public
+    liquibase-schema: public
+    user: roach
+    password: admin

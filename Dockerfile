@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-alpine as builder
 WORKDIR application
 
 # Copy JAR file
-COPY build/libs/demo-0.0.1-SNAPSHOT.jar ./app.jar
+COPY build/libs/release-action-test.jar ./app.jar
 
 # Extract layers from JAR
 RUN java -Djarmode=layertools -jar app.jar extract

@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      logicalFilePath: /v-1.0/2022-05-07--01-create-user-table.yaml
+      author: Dzianis Malei
+      id: 2022-05-07--01-create-user-table.yaml
+      dbms: postgresql
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValue: gen_random_uuid()
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
