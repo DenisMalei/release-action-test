@@ -30,3 +30,6 @@ jobs:
           distribution: 'zulu'
       - name: Build with Gradle
         run: ./gradlew clean final
+        env:
+          GRGIT_USER: ${{ secrets.GRGIT_USER }}
+          GRGIT_PASS: ${{ secrets.GRGIT_PASS }}
