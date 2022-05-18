@@ -29,7 +29,7 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
       - name: Build with Gradle
-        run: ./gradlew clean -Prelease.useLastTag=true final
+        run: ./gradlew --continue --no-daemon --max-workers 2 final
         env:
           GRGIT_USER: ${{ github.actor  }}
           GRGIT_PASS: ${{ secrets.GPRS }}
