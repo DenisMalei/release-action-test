@@ -16,8 +16,8 @@ repositories {
 }
 
 github {
-	owner = 'THG-Procure-Team'
-	repo = 'procure-infrastructure'
+	owner = 'DenisMalei'
+	repo = 'release-action-test'
 	token = System.getenv('GRGIT_PASS') ?: "-"
 	tagName = "v${version}"
 	name = "${version}"
