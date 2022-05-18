@@ -13,13 +13,14 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	mavenLocal()
-	maven {
-		url = uri('https://maven.pkg.github.com/denismalei/release-action-test')
-		credentials {
-			username = project.findProperty('gpr.user') ?: System.getenv('GRGIT_USER')
-			password = project.findProperty('gpr.key') ?: System.getenv('GRGIT_PASS')
-		}
-	}
+}
+
+github {
+	owner = 'THG-Procure-Team'
+	repo = 'procure-infrastructure'
+	token = System.getenv('GRGIT_PASS') ?: "-"
+	tagName = "v${version}"
+	name = "${version}"
 }
 
 ext {
