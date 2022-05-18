@@ -3,6 +3,9 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'application'
+	id "nebula.ospackage" version "8.3.0"
+	id 'nebula.release' version "15.0.0"
+
 }
 
 group = 'com.example'
