@@ -28,6 +28,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
+
+      - name: clean
+        run: git clean -ffxd
+
       - name: Build with Gradle
         run: ./gradlew clean --continue --no-daemon --max-workers 2 final
         env:
