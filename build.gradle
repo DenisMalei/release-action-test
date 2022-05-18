@@ -14,7 +14,12 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	mavenLocal()
-
+	maven {
+		credentials {
+			username = project.findProperty('gpr.user') ?: System.getenv('GRGIT_USER')
+			password = project.findProperty('gpr.key') ?: System.getenv('GRGIT_PASS')
+		}
+	}
 }
 
 ext {
