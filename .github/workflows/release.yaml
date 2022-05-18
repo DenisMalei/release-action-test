@@ -31,5 +31,5 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean final
         env:
-          GRGIT_USER: ${{ secrets.GRGIT_USER }}
-          GRGIT_PASS: ${{ secrets.GRGIT_PASS }}
+          GRGIT_USER: ${{ github.actor  }}
+          GRGIT_PASS: ${{ secrets.GITHUB_TOKEN }}
