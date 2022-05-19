@@ -38,5 +38,6 @@ jobs:
           GRGIT_USER: ${{ github.actor  }}
           GRGIT_PASS: ${{ secrets.GPRS }}
 
-      - run: docker buildx build -t=test2 . && docker images
+      - run: ./gradlew getVersion
+      - run: docker buildx build -t=test2 . && docker images  --push
       - run: docker images

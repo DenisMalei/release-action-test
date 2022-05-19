@@ -42,6 +42,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+task getVersion(){
+	println "VERSION TO RELEASE: " + project.version.toString()
+}
+
 bootJar {
 	getMainClass().set('com.example.demo.DemoApplication')
 	getArchiveFileName().set("release-action-test.jar")
