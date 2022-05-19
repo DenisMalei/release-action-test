@@ -38,4 +38,9 @@ jobs:
           GRGIT_USER: ${{ github.actor  }}
           GRGIT_PASS: ${{ secrets.GPRS }}
 
-      - run: ./gradlew getVersion
+      - name: extract version
+        id: version
+        run: ./gradlew getVersion
+
+      - run: echo ${{ steps.version.outputs.VERS }}
+
