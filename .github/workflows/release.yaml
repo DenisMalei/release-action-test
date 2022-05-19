@@ -39,5 +39,3 @@ jobs:
           GRGIT_PASS: ${{ secrets.GPRS }}
 
       - run: ./gradlew getVersion
-      - run: docker buildx build -t=test2 . && docker images  --push
-      - run: docker images
