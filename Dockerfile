@@ -25,9 +25,5 @@ USER test-action:test-action
 WORKDIR application
 
 # Copy layers of fatjar to use all benifits of cache
-COPY --from=builder /application/dependencies/ .
-COPY --from=builder /application/spring-boot-loader/ .
-COPY --from=builder /application/snapshot-dependencies/ .
-COPY --from=builder /application/application/ .
 
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
