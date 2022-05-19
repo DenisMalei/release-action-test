@@ -43,7 +43,6 @@ jobs:
         run: git clean -ffxd
 
       - name: Build with Gradle
-        run: ./gradlew clean --continue --no-daemon --max-workers 2 final
+        run: ./gradlew clean final
         env:
-          GRGIT_USER: ${{ github.actor  }}
           GRGIT_PASS: ${{ secrets.GPRS }}

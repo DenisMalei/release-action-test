@@ -24,8 +24,6 @@ github {
 	name = "${version}"
 }
 
-tasks.release.finalizedBy tasks.githubRelease
-
 ext {
 	liquibaseVersion = "3.8.9"
 }
