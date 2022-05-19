@@ -26,4 +26,5 @@ WORKDIR application
 
 # Copy layers of fatjar to use all benifits of cache
 
+
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
