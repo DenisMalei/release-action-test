@@ -38,8 +38,5 @@ jobs:
           GRGIT_USER: ${{ github.actor  }}
           GRGIT_PASS: ${{ secrets.GPRS }}
 
-      - name: build image
-        run: docker build -t=test . && docker images ls
-
-      - name: build image
-        run: docker images ls
+      - run: docker build -t=test . && docker images ls
+      - run: docker images ls
