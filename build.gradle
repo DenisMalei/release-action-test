@@ -42,7 +42,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-task getVersion(){
+task getVersion(type: Exec){
 	def onDiskVersion = project.version.toString().replaceAll('-', '~')
 	println "VERSION TO RELEASE: " + onDiskVersion
 	commandLine 'echo', '"::set-output name=VERS::"', onDiskVersion
