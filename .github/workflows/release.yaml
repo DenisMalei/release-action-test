@@ -39,9 +39,6 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
-      - name: clean
-        run: git clean -ffxd
-
       - name: Build with Gradle
         run: ./gradlew clean final
         env:
