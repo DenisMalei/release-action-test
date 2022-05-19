@@ -40,7 +40,7 @@ jobs:
 
       - name: extract version
         id: version
-        run: VERSION=$(./gradlew -q getVersion | tail -n 1)
+        run: VERSION=$(./gradlew -q getVersion)
 
       - run: echo ${{ steps.version.outputs.VERS }}
 
