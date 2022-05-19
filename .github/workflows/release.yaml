@@ -8,6 +8,8 @@
 name: release
 
 on:
+  push:
+    branches: [ release/* ]
   workflow_dispatch:
 
 jobs:
@@ -16,7 +18,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -26,15 +38,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
-      - name: Build with Gradle
-        run: ./gradlew clean build; ls build/libs
 
-      - name: Tag repository
-        id: tag
-        uses: mathieudutour/github-tag-action@v6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: .^
-          pre_release_branches: .*
-          default_prerelease_bump: preminor
-          append_to_pre_release_tag: SNAPSHOT
+      - name: Build with Gradle
+        run: ./gradlew clean final
+        env:
+          GRGIT_USER: ${{ github.actor  }}
+          GRGIT_PASS: ${{ secrets.GPRS }}

@@ -16,12 +16,11 @@ logs/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea/
 .idea
 *.iws
 *.iml
 *.ipr
-/out/
+out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -32,4 +31,4 @@ logs/
 
 ### VS Code ###
 .vscode/
-/.idea/
+/gradle/

@@ -10,6 +10,7 @@ public class MainController {
 
     @GetMapping
     public String get(){
+        System.out.println("");
         return "resource";
     }
 
