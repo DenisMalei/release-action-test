@@ -45,7 +45,8 @@ tasks.named('test') {
 task getVersion(type: Exec){
 	def onDiskVersion = project.version.toString().replaceAll('-', '~')
 	println "VERSION TO RELEASE: " + onDiskVersion
-	commandLine 'echo "::set-output name=VERS::12"'
+	commandLine 'echo', '"Hello world!"'
+	//commandLine 'echo "::set-output name=VERS::12"'
 }
 
 bootJar {
